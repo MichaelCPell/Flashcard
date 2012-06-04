@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  creator: MyString
+  course_id: 1
+  doc_type: MyString
+
+two:
+  creator: MyString
+  course_id: 1
+  doc_type: MyString

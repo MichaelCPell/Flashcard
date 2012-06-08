@@ -14,6 +14,7 @@ $(document).ready(function(){
 
 //This function allows the users to control with the keyboard arrows
 $(document).keydown(function(e){
+
       if (e.keyCode == 37) {
          $("#previous-button").click();
          return false;
@@ -29,5 +30,7 @@ $(document).keydown(function(e){
          return false;
       }
 
-      return false;
 });
+
+
+

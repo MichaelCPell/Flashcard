@@ -8,7 +8,7 @@
 
 <h1>Decks</h1>
 <% @course.decks.each do |deck| %>
-  <%= deck.name %>
+  <%= link_to deck.name, deck %>
 <% end %>
 
 

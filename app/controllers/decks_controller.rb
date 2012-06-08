@@ -1,6 +1,6 @@
 class DecksController < ApplicationController
-  # GET /decks
-  # GET /decks.json
+  respond_to :js, :html
+
   def index
     @decks = Deck.all
 
@@ -15,16 +15,19 @@ class DecksController < ApplicationController
   def show
     @deck = Deck.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @deck }
-    end
+    @card = @deck.cards.paginate(:page => params[:page], :per_page => 1).order('id ASC')
+
+    respond_with @deck
+
   end
 
   # GET /decks/new
   # GET /decks/new.json
   def new
     @deck = Deck.new
+    @deck.cards.build
+
+
 
     respond_to do |format|
       format.html # new.html.erb

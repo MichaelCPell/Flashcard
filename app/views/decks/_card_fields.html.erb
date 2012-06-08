@@ -1,0 +1,13 @@
+<fieldset class="form-inline">
+  Flashcard:
+  <br>
+  Front: <%= card.text_field :front  %>
+  Back: <%= card.text_field :back %>
+
+
+  <label class="checkbox"><%= card.check_box :_destroy, class: "add-on" %> Delete This Card</label>
+
+</fieldset>
+ <br>
+
+

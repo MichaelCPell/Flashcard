@@ -4,6 +4,7 @@ class CreateDecks < ActiveRecord::Migration
       t.string :creator
       t.integer :course_id
       t.string :doc_type
+      t.string :name
 
       t.timestamps
     end

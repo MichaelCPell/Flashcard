@@ -1,4 +1,4 @@
-<%= form_for(@deck) do |f| %>
+<%= form_for @deck, html: {class: "well form-horizontal"} do |f| %>
   <% if @deck.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@deck.errors.count, "error") %> prohibited this deck from being saved:</h2>
@@ -10,20 +10,34 @@
       </ul>
     </div>
   <% end %>
+    <h2>Deck Info</h2>
 
-  <div class="field">
-    <%= f.label :creator %><br />
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <bR>
+
+    <%= f.label :creator %>
     <%= f.text_field :creator %>
-  </div>
-  <div class="field">
-    <%= f.label :course_id %><br />
-    <%= f.number_field :course_id %>
-  </div>
-  <div class="field">
-    <%= f.label :doc_type %><br />
-    <%= f.text_field :doc_type %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+    <%= f.label :course_id %>
+    <%= f.collection_select(:course_id, Course.all, :id, :name) %>
+
+
+    <%= f.label :doc_type %>
+    <%= f.text_field :doc_type, value: "Flashcard Deck", disabled: "disabled" %>
+
+
+  <br>
+  <h2>Flashcards</h2>
+  <%= f.fields_for :cards do |card_builder| %>
+    <%= render "card_fields", :card => card_builder   %>
+  <% end %>
+ <%= link_to_add_fields "Add Card", f, :cards %>
+
+ <br>
+ <br>
+ <%= f.submit "Save Changes", class: "btn btn-primary" %>
+
 <% end %>

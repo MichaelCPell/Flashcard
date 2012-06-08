@@ -4,6 +4,7 @@ class CreateCards < ActiveRecord::Migration
       t.string :front
       t.string :back
       t.integer :course_id
+      t.integer :answerable
 
       t.timestamps
     end

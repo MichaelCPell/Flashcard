@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
-  # GET /cards
-  # GET /cards.json
+  respond_to :js, :html
+
   def index
     @cards = Card.all
 
@@ -15,10 +15,7 @@ class CardsController < ApplicationController
   def show
     @card = Card.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @card }
-    end
+    respond_with @card
   end
 
   # GET /cards/new

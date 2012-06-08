@@ -1,27 +1,11 @@
-<h1>Listing decks</h1>
-
-<table>
-  <tr>
-    <th>Creator</th>
-    <th>Course</th>
-    <th>Doc type</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>Decks</h1>
 
 <% @decks.each do |deck| %>
-  <tr>
-    <td><%= deck.creator %></td>
-    <td><%= deck.course_id %></td>
-    <td><%= deck.doc_type %></td>
-    <td><%= link_to 'Show', deck %></td>
-    <td><%= link_to 'Edit', edit_deck_path(deck) %></td>
-    <td><%= link_to 'Destroy', deck, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+  <%=  link_to deck.name, deck %>
 <% end %>
-</table>
 
-<br />
 
-<%= link_to 'New Deck', new_deck_path %>
+<br>
+<br>
+
+<%= link_to 'Add Deck', new_deck_path, class: "btn" %>

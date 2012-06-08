@@ -1,0 +1,24 @@
+<section id="card-partial-content">
+  <h1><%= card.front %></h1>
+</section>
+
+<script type="text/javascript">
+  clickCounter = 0;
+
+  $("document").ready(function(){
+    $("#card-partial").click(function(){
+
+      if (clickCounter == 1){
+        clickCounter = -1;
+        $("a#next-button").click();
+      }
+
+      backOfCard = "<%=j card.back %>"
+      backOfCard == "" ? $("#card-partial-content h1").html("Back is Blank") : $("#card-partial-content h1").html(backOfCard);
+
+      clickCounter += 1;
+    })
+  });
+</script>
+
+

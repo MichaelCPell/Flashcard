@@ -1,20 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Creator:</b>
-  <%= @deck.creator %>
-</p>
+<h2 class="pull-left">Creator: <%= @deck.creator %></h2>
+<h2 class="pull-right">Deck Name: <%= @deck.name %></h2>
 
-<p>
-  <b>Course:</b>
-  <%= @deck.course_id %>
-</p>
-
-<p>
-  <b>Doc type:</b>
-  <%= @deck.doc_type %>
-</p>
+<section id="flashcard-area">
+  <%= render "decks/partials/flashcard_area" %>
+</section>
 
 
-<%= link_to 'Edit', edit_deck_path(@deck) %> |
-<%= link_to 'Back', decks_path %>
+<%= link_to "Edit this Deck", edit_deck_path(@deck), class: "btn" %>
+
+
+

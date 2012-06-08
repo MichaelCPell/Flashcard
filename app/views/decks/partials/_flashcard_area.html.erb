@@ -1,0 +1,61 @@
+  <div class="row">
+    <section id="instruction-bar" class="span12">
+      <h4>Click the Card to Flip</h4>
+    </section>
+  </div>
+
+  <div class="row">
+
+    <section id="previous-button-column" class="span2">
+      <% if @card.previous_page %>
+      <%= link_to "PREVIOUS", params.merge(page: @card.previous_page), remote: true,
+                            class: "btn btn-primary btn-control", id: "previous-button" %>
+      <% else  %>
+      <a class="btn disabled btn-control">Get Started!!</a>
+      <% end %>
+      
+      <%= link_to "Start Over", params.merge(page: 1), remote: true %>
+    </section>
+
+    <section id="card-partial" class="span8" style="">
+      <%= render "cards/partials/show", :card => @card.first %>
+    </section>
+
+    <section id="next-button-column span2">
+      <section id="">
+        <% if @card.next_page %>
+          <%= link_to "NEXT", params.merge(page: @card.next_page),
+                remote: true, class: "btn btn-primary btn-control pull-right", id: "next-button" %>
+        <% else %>
+          <a class="btn disabled btn-control pull-right">Next</a>
+        <% end %>
+      </section>
+
+      <section id="deck-progress" class=" pull-right">
+        <h2><%= @card.current_page %> out of <%= @deck.cards.count %></h2>
+      </section>
+    </section>
+  </div>
+
+
+
+
+  <script type="text/javascript">
+    $("#card-partial").click(function(){
+      <% if @card.current_page != @deck.cards.count %>
+        $("#instruction-bar h4").text("Click Again to Continue");
+      <% else %>
+        $("#instruction-bar h4").text("You've Finished the Deck!");
+      <% end %>
+    });
+
+
+});
+
+
+
+
+
+  </script>
+
+

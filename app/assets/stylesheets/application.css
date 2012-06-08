@@ -10,4 +10,15 @@
  *
  *= require_self
  *= require_tree .
+ *= require bootstrap
 */
+
+
+#notice {
+    background-color: #77cdf3;
+
+}
+
+.nav-header {
+    width:400px;
+}

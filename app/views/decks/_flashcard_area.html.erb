@@ -18,7 +18,7 @@
     </section>
 
     <section id="card-partial" class="span8" style="">
-      <%= render "cards/partials/show", :card => @card.first %>
+      <%= render "card_show", :card => @card.first %>
     </section>
 
     <section id="next-button-column span2">
@@ -32,22 +32,12 @@
       </section>
 
       <section id="deck-progress" class=" pull-right">
-        <h2><%= @card.current_page %> out of <%= @deck.cards.count %></h2>
+        <h2><span id="current-card"><%= @card.current_page %></span> out of <span id="deck-total"><%= @deck.cards.count %></span></h2>
       </section>
     </section>
   </div>
 
 
 
-
-  <script type="text/javascript">
-    $("#card-partial").click(function(){
-      <% if @card.current_page != @deck.cards.count %>
-        $("#instruction-bar h4").text("Click Again to Continue");
-      <% else %>
-        $("#instruction-bar h4").text("You've Finished the Deck!");
-      <% end %>
-    });
-  </script>
 
 

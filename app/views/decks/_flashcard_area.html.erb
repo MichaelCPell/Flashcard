@@ -22,14 +22,12 @@
     </section>
 
     <section id="next-button-column span2">
-      <section id="">
         <% if @card.next_page %>
           <%= link_to "NEXT", params.merge(page: @card.next_page),
                 remote: true, class: "btn btn-primary btn-control pull-right", id: "next-button" %>
         <% else %>
           <a class="btn disabled btn-control pull-right">Next</a>
         <% end %>
-      </section>
 
       <section id="deck-progress" class=" pull-right">
         <h2><span id="current-card"><%= @card.current_page %></span> out of <span id="deck-total"><%= @deck.cards.count %></span></h2>

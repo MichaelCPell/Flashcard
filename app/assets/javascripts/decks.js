@@ -40,6 +40,7 @@ function mapKeys(){
 //The Function Used for flipping a card
 function flipCard(){
     clickCounter = 0;
+
       $("#card-partial").click(function(){
 
         if (clickCounter == 1){
@@ -51,7 +52,7 @@ function flipCard(){
         backOfCard == "" ? $("#card-partial-content h1").html("Back is Blank") : $("#card-partial-content h1").html(backOfCard);
 
         clickCounter += 1;
-    })
+      })
 }
 
 
